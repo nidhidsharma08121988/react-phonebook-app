@@ -7,16 +7,17 @@ const linkStyle = {
     color: 'initial !important',
 }
 
-const AddContactForm = () => {
-    const [first, setFirst] = useState('');
-    const [last, setLast] = useState('');
-    const [phone, setPhone] = useState('');
+const EditContact = (props) => {
+    const [contact] = useState(props.location.contact);
+    const [first, setFirst] = useState(contact.first);
+    const [last, setLast] = useState(contact.last);
+    const [phone, setPhone] = useState(contact.phone);
     const [formSubmitted, setFormSubmitted] = useState(false);
-    const { addContact } = useContext(GlobalContext);
+    const { editContact } = useContext(GlobalContext);
     const { setHeader } = useContext(GlobalContext);
 
     useEffect(() => {
-        setHeader('Add Contact');
+        setHeader('Edit Contact');
     }, [])
 
     const handleSubmit = (e) => {
@@ -24,20 +25,20 @@ const AddContactForm = () => {
         if (!first && !last && !phone) {
             return
         }
-        const newContact = {
-            id: Math.floor(Math.random() * 100) + 1,
+        const editedContact = {
+            id: contact.id,
             first,
             last,
             phone
         }
-        addContact(newContact);
+
+        editContact(editedContact);
         setHeader('My Contacts');
         setFormSubmitted(true);
     }
 
-
     return (
-        <form className='add-contact-form'>
+        <form className='edit-contact-form'>
             <div className="control-container">
                 <Link style={linkStyle} to='/'><button className="btn cancel-btn">&#9747;</button></Link>
                 <button onClick={handleSubmit} className="btn save-btn" >&#10003;</button>
@@ -64,4 +65,4 @@ const AddContactForm = () => {
     )
 }
 
-export default AddContactForm
+export default EditContact

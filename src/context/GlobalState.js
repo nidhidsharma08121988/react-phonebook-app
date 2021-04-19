@@ -36,6 +36,12 @@ export const GlobalProvider = ({ children }) => {
             payload: id,
         })
     }
+    const editContact = (contact) => {
+        dispatch({
+            type: 'EDIT_CONTACT',
+            payload: contact
+        })
+    }
     const setHeader = (name) => {
         dispatch({
             type: 'EDIT_HEADER',
@@ -49,7 +55,8 @@ export const GlobalProvider = ({ children }) => {
             header: state.header,
             addContact,
             deleteContact,
-            setHeader
+            setHeader,
+            editContact
         }}>
             {children}
         </GlobalContext.Provider>

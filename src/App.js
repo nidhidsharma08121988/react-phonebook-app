@@ -4,6 +4,7 @@ import { GlobalProvider } from './context/GlobalState';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AddContactForm from './components/AddContactForm';
 import Header from './components/Header';
+import EditContact from './components/EditContact';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={ContactsList} />
             <Route path="/AddContact" component={AddContactForm} />
+            <Route path='/EditContact' render={props => <EditContact {...props} />} />
           </Switch>
         </BrowserRouter>
       </div>

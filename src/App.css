@@ -47,18 +47,29 @@ body {
 }
 .contact-delete-container{
   display: flex;
-  justify-content: space-between;
+  justify-content:left;
   align-items: center;
   width:100%;
   margin-bottom: 1%;
   border-left:2px solid green;
   box-shadow: 1px 1px lightgray;
 }
+.contact-delete-container:hover .delete-button-container{
+  display:inherit;
+}
+.edit-button-container{
+  width:10%;
+}
+.delete-button-container{
+  display:none;
+  z-index:0;
+}
 
 .contact-container{
   margin:10px 15px;
   padding-left:10px;
   margin-left:0px;
+  width:80%;
 }
 .add-contact-form,
 .edit-contact-form{
@@ -111,12 +122,14 @@ body {
 }
 .add-btn, 
 .save-btn,
-.cancel-btn{
+.cancel-btn,
+.edit-btn{
   font-size: 1.2em;
   border-radius: 50%;
 }
 
 .cancel-btn{
+
   color:red;
   background-color: white;
   box-shadow: none;
@@ -126,7 +139,12 @@ body {
   font-size: 1.8em;
   width:40px;
   height:40px;
+}
 
+.edit-btn{
+  font-size:1em;
+  width:30px;
+  height:30px;
 }
 
 .footer{
