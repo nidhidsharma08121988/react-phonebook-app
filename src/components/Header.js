@@ -5,7 +5,7 @@ const Header = () => {
     const { header } = useContext(GlobalContext);
     return (
         <div className='header-container'>
-            <h1>{header}</h1>
+            <h2>{header}</h2>
         </div>
     )
 }

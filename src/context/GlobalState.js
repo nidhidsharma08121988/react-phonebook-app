@@ -36,6 +36,12 @@ export const GlobalProvider = ({ children }) => {
             payload: id,
         })
     }
+    const setHeader = (name) => {
+        dispatch({
+            type: 'EDIT_HEADER',
+            payload: name,
+        })
+    }
 
     return (
         <GlobalContext.Provider value={{
@@ -43,7 +49,7 @@ export const GlobalProvider = ({ children }) => {
             header: state.header,
             addContact,
             deleteContact,
-
+            setHeader
         }}>
             {children}
         </GlobalContext.Provider>

@@ -1,4 +1,4 @@
-import { React, useContext, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
@@ -27,9 +27,13 @@ const AddContactForm = () => {
         }
         console.log(newContact)
         addContact(newContact);
+        setHeader('My Contacts');
         setFormSubmitted(true);
-
     }
+    const { setHeader } = useContext(GlobalContext);
+    useEffect(() => {
+        setHeader('Add Contact');
+    }, [])
 
     return (
         <form className='add-contact-form'>
